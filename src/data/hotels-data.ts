@@ -1,5 +1,5 @@
-import hotelRoom1 from '$images/hotel-room-1.jpeg';
-import hotelRoom2 from '$images/hotel-room-2.webp';
+import hotelRoom1 from '../assets/images/hotel-room-1.jpeg';
+import hotelRoom2 from '../assets/images/hotel-room-2.webp';
 
 import {FaSwimmingPool, FaDumbbell, FaUtensils} from 'react-icons/fa';
 import {MdBusinessCenter, MdSpa, MdStar} from 'react-icons/md';

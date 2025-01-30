@@ -1,4 +1,4 @@
-import avatar from '$images/avatar.jpg';
+import avatar from '../../assets/images/avatar.jpg';
 import {
   AvatarDescription,
   AvatarGreeting,

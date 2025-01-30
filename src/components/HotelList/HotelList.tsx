@@ -1,5 +1,5 @@
-import {HotelCard} from '$components/HotelCard/HotelCard';
 import hotelsData from '../../data/hotels-data';
+import {HotelCard} from '../HotelCard/HotelCard';
 import {List} from './styles';
 
 export function HotelList() {

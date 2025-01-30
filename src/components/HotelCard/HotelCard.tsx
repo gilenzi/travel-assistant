@@ -1,6 +1,7 @@
 import theme from '../../styles/theme';
 import {IconType} from 'react-icons';
-import Wishlist from '$components/Wishlist/Wishlist';
+import Wishlist from '../Wishlist/Wishlist';
+
 import {
   Card,
   CardBottomSection,

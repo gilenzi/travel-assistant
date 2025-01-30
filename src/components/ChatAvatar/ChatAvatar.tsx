@@ -1,4 +1,4 @@
-import VoiceAvatar from '$images/voice-avatar.png';
+import VoiceAvatar from '../../assets/images/voice-avatar.png';
 import {ChatAvatarWrapper, ChatAvatarImage} from './styles';
 
 export default function ChatAvatar() {

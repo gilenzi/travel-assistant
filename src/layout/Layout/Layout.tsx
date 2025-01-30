@@ -1,6 +1,6 @@
-import Header from '$layout/Header/Header';
 import {ReactNode} from 'react';
 import {LayoutContainer} from './styles';
+import Header from '../Header/Header';
 
 interface LayoutProps {
   children: ReactNode;

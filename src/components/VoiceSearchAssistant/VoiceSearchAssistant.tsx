@@ -1,4 +1,4 @@
-import voiceSearchImage from '$images/voice-search-image.png';
+import voiceSearchImage from '../../assets/images/voice-search-image.png';
 import {
   VoiceSearchAssistantWrapper,
   VoiceSearchAssistantText,
