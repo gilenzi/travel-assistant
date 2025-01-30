@@ -17,7 +17,9 @@ import {
   FeaturesList,
   FeaturesListItem,
   FeaturesListItemText,
+  FeaturesListWrapper,
   HotelName,
+  RecommendedText,
 } from './styles';
 
 interface Feature {
@@ -34,6 +36,7 @@ interface HotelCardProps {
   availability: number;
   features: Feature[];
   imageUrl: string;
+  recommended: boolean;
 }
 
 export function HotelCard({
@@ -45,6 +48,7 @@ export function HotelCard({
   availability,
   features,
   imageUrl,
+  recommended,
 }: HotelCardProps) {
   const {
     colors: {highlight},
@@ -64,14 +68,17 @@ export function HotelCard({
           </CardWishlistWrapper>
           <CardImage src={imageUrl} alt={name} />
         </CardImageWrapper>
-        <FeaturesList>
-          {features.map((feature: any) => (
-            <FeaturesListItem key={`${id}-${feature.name}`}>
-              {<feature.icon color={highlight} />}
-              <FeaturesListItemText>{feature.name}</FeaturesListItemText>
-            </FeaturesListItem>
-          ))}
-        </FeaturesList>
+        <FeaturesListWrapper>
+          {recommended && <RecommendedText>Top recommendation</RecommendedText>}
+          <FeaturesList>
+            {features.map((feature: any) => (
+              <FeaturesListItem key={`${id}-${feature.name}`}>
+                {<feature.icon color={highlight} />}
+                <FeaturesListItemText>{feature.name}</FeaturesListItemText>
+              </FeaturesListItem>
+            ))}
+          </FeaturesList>
+        </FeaturesListWrapper>
       </CardTopSection>
 
       <CardBottomSection>

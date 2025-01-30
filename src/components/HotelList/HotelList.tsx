@@ -16,6 +16,7 @@ export function HotelList() {
           availability={hotel.availability}
           features={hotel.features}
           imageUrl={hotel.imageUrl}
+          recommended={hotel.recommended}
         />
       ))}
     </List>

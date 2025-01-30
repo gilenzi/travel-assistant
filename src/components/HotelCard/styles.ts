@@ -14,15 +14,18 @@ export const Card = styled.li`
 
 export const CardImageWrapper = styled.div`
   position: relative;
+  width: 50%;
 `;
 
 export const CardImage = styled.img`
   border-radius: 10px;
   width: 100%;
-  min-width: 270px;
-  max-width: 350px;
   height: 150px;
   object-fit: cover;
+
+  @media ${({theme: {device}}) => device.laptopL} {
+    height: 220px;
+  }
 `;
 
 export const CardContent = styled.div`
@@ -36,9 +39,22 @@ export const HotelName = styled.h3`
   color: ${({theme}) => theme.colors.textPrimary};
 `;
 
+export const RecommendedText = styled.h4`
+  font-size: 18px;
+  font-weight: normal;
+  color: lightgreen;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+`;
+
+export const FeaturesListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+`;
+
 export const FeaturesList = styled.ul`
   list-style: none;
-  margin: 8px 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;

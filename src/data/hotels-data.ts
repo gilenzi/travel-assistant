@@ -21,6 +21,7 @@ const hotelsData = [
       {name: 'Asian Food', icon: FaUtensils},
     ],
     imageUrl: hotelRoom1,
+    recommended: true,
   },
   {
     id: 2,
@@ -38,6 +39,7 @@ const hotelsData = [
       {name: 'Asian Food', icon: FaUtensils},
     ],
     imageUrl: hotelRoom2,
+    recommended: false,
   },
 ];
 
