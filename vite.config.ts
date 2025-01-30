@@ -1,10 +1,10 @@
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import {ghPages} from 'vite-plugin-gh-pages';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), ghPages()],
   resolve: {
     alias: {
       $components: path.resolve(__dirname, './src/components'),
@@ -13,5 +13,5 @@ export default defineConfig({
       $images: path.resolve(__dirname, './src/assets/images'),
     },
   },
-  base: '/travel-assistant',
+  base: '/travel-assistant/',
 });
