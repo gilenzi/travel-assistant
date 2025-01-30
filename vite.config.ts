@@ -13,4 +13,5 @@ export default defineConfig({
       $images: path.resolve(__dirname, './src/assets/images'),
     },
   },
+  base: '/travel-assistant/',
 });
