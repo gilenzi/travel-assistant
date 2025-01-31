@@ -1,7 +1,10 @@
-import theme from '../../styles/theme';
-import {IconType} from 'react-icons';
-import Wishlist from '../Wishlist/Wishlist';
-
+import React from "react";
+import Wishlist from "../Wishlist/Wishlist";
+import {
+  Feature,
+  HotelCard as HotelCardProps,
+} from "../../services/hotelService";
+import { useTheme } from "styled-components";
 import {
   Card,
   CardBottomSection,
@@ -20,24 +23,7 @@ import {
   FeaturesListWrapper,
   HotelName,
   RecommendedText,
-} from './styles';
-
-interface Feature {
-  name: string;
-  icon: IconType;
-}
-
-interface HotelCardProps {
-  id: number;
-  name: string;
-  price: number;
-  currency: string;
-  distance: string;
-  availability: number;
-  features: Feature[];
-  imageUrl: string;
-  recommended: boolean;
-}
+} from "./styles";
 
 export function HotelCard({
   id,
@@ -51,8 +37,8 @@ export function HotelCard({
   recommended,
 }: HotelCardProps) {
   const {
-    colors: {highlight},
-  } = theme;
+    colors: { highlight },
+  } = useTheme();
 
   return (
     <Card>
@@ -71,16 +57,15 @@ export function HotelCard({
         <FeaturesListWrapper>
           {recommended && <RecommendedText>Top recommendation</RecommendedText>}
           <FeaturesList>
-            {features.map((feature: any) => (
+            {features.map((feature: Feature) => (
               <FeaturesListItem key={`${id}-${feature.name}`}>
-                {<feature.icon color={highlight} />}
+                {React.createElement(feature.icon, { color: highlight })}
                 <FeaturesListItemText>{feature.name}</FeaturesListItemText>
               </FeaturesListItem>
             ))}
           </FeaturesList>
         </FeaturesListWrapper>
       </CardTopSection>
-
       <CardBottomSection>
         <CardContent>
           <HotelName>{name}</HotelName>
@@ -93,12 +78,10 @@ export function HotelCard({
             </CardDescription>
             <CardDescription>
               <CardDescriptionTitle>Maps</CardDescriptionTitle>
-
               <CardDescriptionText>{distance}</CardDescriptionText>
             </CardDescription>
             <CardDescription>
               <CardDescriptionTitle>Available</CardDescriptionTitle>
-
               <CardDescriptionText>
                 Availability: {availability} rooms left
               </CardDescriptionText>

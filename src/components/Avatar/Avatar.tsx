@@ -1,19 +1,24 @@
-import avatar from '../../assets/images/avatar.jpg';
+import avatar from "../../assets/images/avatar.jpg";
 import {
   AvatarDescription,
   AvatarGreeting,
   AvatarName,
   AvatarProfileImage,
   AvatarWrapper,
-} from './styles';
+} from "./styles";
 
-export function Avatar() {
+interface AvatarProps {
+  name: string;
+  greet?: string;
+}
+
+export function Avatar({ greet = "Hello,", name }: AvatarProps) {
   return (
     <AvatarWrapper>
       <AvatarProfileImage src={avatar} />
       <AvatarDescription>
-        <AvatarGreeting>Hello,</AvatarGreeting>
-        <AvatarName>Anthony</AvatarName>
+        <AvatarGreeting>{greet}</AvatarGreeting>
+        <AvatarName>{name}</AvatarName>
       </AvatarDescription>
     </AvatarWrapper>
   );

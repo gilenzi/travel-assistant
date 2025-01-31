@@ -1,11 +1,30 @@
-import hotelsData from '../../data/hotels-data';
-import {HotelCard} from '../HotelCard/HotelCard';
-import {List} from './styles';
+import { useEffect, useState } from "react";
+import { HotelCard } from "../HotelCard/HotelCard";
+import { Loader } from "../Loader/Loader";
+import hotelService, {
+  HotelCard as HotelCardProps,
+} from "../../services/hotelService";
+import { List } from "./styles";
 
 export function HotelList() {
+  const [hotels, setHotels] = useState<HotelCardProps[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setLoading(true);
+    hotelService.getHotels().then((data) => {
+      setHotels(data);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return <Loader loadingText="Loading hotels..." />;
+  }
+
   return (
     <List>
-      {hotelsData.map((hotel) => (
+      {hotels.map((hotel) => (
         <HotelCard
           id={hotel.id}
           key={hotel.id}
